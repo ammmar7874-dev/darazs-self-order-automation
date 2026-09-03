@@ -14,7 +14,7 @@ powershell -Command "Start-Process powershell -ArgumentList '-NoProfile -Executi
 
 echo.
 echo [✓] Auto Git Sync is now RUNNING in the background!
-echo [i] Har 5 minute baad aapka code automatically GitHub par push hoga.
+echo [i] Har 1 minute (60 seconds) baad aapka code automatically GitHub par push hoga.
 echo [i] Sync logs dekhne ke liye 'auto_sync.log' check kar sakte hain.
 echo.
 echo Agar aap isay stop karna chahein toh 'stop_sync_background.bat' run karein.
