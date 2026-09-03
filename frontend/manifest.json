@@ -1,0 +1,28 @@
+{
+  "name": "DarazBot Pro Enterprise Suite",
+  "short_name": "DarazBot Pro",
+  "description": "Daraz SERP Organic Ranking, Store 10x Booster, Add-To-Cart & Self-Order Automation Suite",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0d14",
+  "theme_color": "#0f172a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

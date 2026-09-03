@@ -1,0 +1,59 @@
+===============================================================================
+⚡ DARAZBOT PRO ENTERPRISE - SELLER QUICK START GUIDE (ROMAN URDU)
+===============================================================================
+
+Assalam-o-Alaikum! DarazBot Pro ek 100% Automated Desktop Application hai jo 
+aapke Daraz store ki ranking barhane, Add-To-Cart boost karne aur 250+ safe 
+self-orders lagane ke liye banayi gayi hai.
+
+-------------------------------------------------------------------------------
+🚀 1. SOFTWARE KAISE CHALANA HAI? (HOW TO START)
+-------------------------------------------------------------------------------
+1. Is folder mein "Setup_And_Launch.bat" par DOUBLE CLICK karein.
+2. Pehli baar yeh automatically zaroori files set karega aur aapke 
+   Desktop par "DarazBot Pro" ka icon bana dega.
+3. Ek khoobsorat Desktop App Window open ho jayegi!
+
+(Note: Agar PC par Python na ho to sirf aik baar python.org se install kar lein 
+aur install karte waqt "Add Python to PATH" par tick laga dein).
+
+-------------------------------------------------------------------------------
+👥 2. BUYER ACCOUNTS ADD KARNA
+-------------------------------------------------------------------------------
+1. App mein "Accounts" tab par jayein.
+2. "Bulk Import Accounts" click karein aur apne accounts paste karein:
+   Format:
+   buyer1@gmail.com:Password123
+   buyer2@gmail.com:Password456:03001234567:House 10, Karachi
+
+3. "Daily Limit / ID" ko 5 Orders/Day par select rakhein.
+
+-------------------------------------------------------------------------------
+🛡️ 3. PROXY & IP ROTATION (100% AUTOMATIC)
+-------------------------------------------------------------------------------
+Aapko koi proxy khareedne ya set karne ki zaroorat nahi hai!
+- Bot khud background mein har order ke baad worldwide live proxies se IP badalta hai.
+- (Best Option): Agar aap apna 4G mobile phone USB se computer ke sath connect kar dein 
+  to bot 2 second mein 4G Airplane mode ghuma kar 100% Pakistani Jazz/Zong IP le lega!
+
+-------------------------------------------------------------------------------
+⚡ 4. CAMPAIGN START KARNA (250+ ORDERS YA RANKING)
+-------------------------------------------------------------------------------
+1. Dashboard par "⚡ Launch New Campaign" dabayein.
+2. Apni Product ka link aur Search Keyword (e.g. "wireless earbuds") dalein.
+3. Mode select karein:
+   - "Solution 4 (Rank Booster)": Unlimited Add-To-Carts aur Traffic signal bhejega.
+   - "Dedicated Self-Orders": 50 accounts se 250+ COD orders lagayega (5 orders/ID).
+4. "Launch" par click karein!
+
+Live actions dekhne ke liye "Live Stream" ya "Console" tab open karein.
+
+-------------------------------------------------------------------------------
+📱 5. MOBILE SE CONTROL KARNA (OPTIONAL)
+-------------------------------------------------------------------------------
+Agar computer ke sath sath mobile se bhi bot ko monitor karna chahein:
+- Folder mein "share_online.bat" chalayein aur link apne mobile mein khol lein!
+
+===============================================================================
+⚡ Enjoy 10x Daraz Store Growth with DarazBot Pro Enterprise! ⚡
+===============================================================================

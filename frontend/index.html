@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0d14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DarazBot Pro">
+  <link rel="manifest" href="manifest.json">
+  
+  <title>DarazBot Pro ⚡ Organic Search, Order & Ranking Suite</title>
+  
+  <!-- Favicons & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Native Desktop Application Utility Bar -->
+  <div class="desktop-bar">
+    <div class="desktop-bar-left">
+      <div class="desktop-bar-badge">
+        <i data-lucide="cpu" style="width: 14px; height: 14px;"></i>
+        <span>DARAZBOT PRO DESKTOP SUITE</span>
+      </div>
+      <div class="desktop-bar-badge">
+        <i data-lucide="shield-check" style="width: 14px; height: 14px; color: var(--accent-green);"></i>
+        <span>Anti-Detect Engine: Active</span>
+      </div>
+    </div>
+    
+    <div class="desktop-bar-actions">
+      <button class="desktop-action-btn" id="btn-desktop-data-folder" title="Open User Data & DB in Windows Explorer">
+        <i data-lucide="folder" style="width: 13px; height: 13px;"></i> Data Folder
+      </button>
+      <button class="desktop-action-btn" id="btn-desktop-screens-folder" title="Open Captured Screenshots">
+        <i data-lucide="camera" style="width: 13px; height: 13px;"></i> Screenshots
+      </button>
+      <button class="desktop-action-btn" id="btn-desktop-shortcut" title="Pin 1-Click Shortcut to Windows Desktop">
+        <i data-lucide="sparkles" style="width: 13px; height: 13px; color: var(--accent-yellow);"></i> Pin Desktop Shortcut
+      </button>
+      <button class="desktop-action-btn" id="btn-desktop-fullscreen" title="Toggle Fullscreen App Mode">
+        <i data-lucide="maximize" style="width: 13px; height: 13px;"></i> Fullscreen
+      </button>
+      <button class="desktop-action-btn" id="btn-desktop-diagnostics" title="System Diagnostics & Runtime Info">
+        <i data-lucide="activity" style="width: 13px; height: 13px;"></i> Diagnostics
+      </button>
+    </div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand" onclick="switchTab('dashboard-view')">
+      <div class="nav-logo-icon">
+        <img src="assets/icon.svg" alt="DarazBot Pro">
+      </div>
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span class="nav-title">DarazBot Pro</span>
+          <span class="nav-badge">v2.1 ENTERPRISE</span>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Self-Order, SERP Ranking & Visual Automation Suite</div>
+      </div>
+    </div>
+
+    <!-- Center Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="dashboard-view">
+        <i data-lucide="layout-dashboard" style="width: 16px; height: 16px;"></i> Dashboard
+      </button>
+      <button class="tab-btn" data-tab="store-booster-view">
+        <i data-lucide="store" style="width: 16px; height: 16px; color: var(--accent-daraz);"></i> Store Booster
+      </button>
+      <button class="tab-btn" data-tab="rank-tracker-view">
+        <i data-lucide="search" style="width: 16px; height: 16px; color: var(--accent-green);"></i> Rank Tracker
+      </button>
+      <button class="tab-btn" data-tab="visual-monitor-view">
+        <i data-lucide="eye" style="width: 16px; height: 16px; color: var(--accent-cyan);"></i> Live Stream
+      </button>
+      <button class="tab-btn" data-tab="campaigns-view">
+        <i data-lucide="target" style="width: 16px; height: 16px;"></i> Campaigns
+      </button>
+      <button class="tab-btn" data-tab="accounts-view">
+        <i data-lucide="users" style="width: 16px; height: 16px;"></i> Accounts
+      </button>
+      <button class="tab-btn" data-tab="proxies-view">
+        <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i> Proxies
+      </button>
+      <button class="tab-btn" data-tab="terminal-view">
+        <i data-lucide="terminal" style="width: 16px; height: 16px;"></i> Console
+      </button>
+    </nav>
+
+    <!-- Right Status & Active IP -->
+    <div class="nav-status">
+      <!-- Country Marketplace Selector -->
+      <select id="marketplace-selector" class="form-input" style="padding: 0.35rem 0.6rem; font-size: 0.8rem; background: rgba(15,23,42,0.8); border: 1px solid var(--border-color); color: #fff; width: auto; cursor: pointer;" title="Select Daraz Marketplace">
+        <option value="PK" selected>🇵🇰 Pakistan (.pk)</option>
+        <option value="BD">🇧🇩 Bangladesh (.com.bd)</option>
+        <option value="LK">🇱🇰 Sri Lanka (.lk)</option>
+        <option value="NP">🇳🇵 Nepal (.com.np)</option>
+        <option value="MM">🇲🇲 Myanmar (.com.mm)</option>
+      </select>
+
+      <button class="btn btn-secondary btn-sm" id="btn-open-settings-modal" title="Engine & Safety Settings" style="padding: 0.45rem;">
+        <i data-lucide="settings" style="width: 16px; height: 16px;"></i>
+      </button>
+
+      <div class="ip-badge" id="current-ip-btn" title="Click to test network IP">
+        <i data-lucide="globe" style="width: 14px; height: 14px;"></i>
+        <span id="nav-ip-text">IP: Checking...</span>
+      </div>
+      <div class="ws-indicator">
+        <div class="pulse-dot"></div>
+        <span id="ws-status-text">Connected</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- 1. DASHBOARD VIEW -->
+    <section id="dashboard-view" class="tab-pane active">
+      
+      <!-- 🌟 EASY 3-STEP QUICK LAUNCH WIZARD FOR SELLERS -->
+      <div class="glass-panel" style="background: linear-gradient(135deg, rgba(248, 86, 6, 0.12) 0%, rgba(30, 41, 59, 0.7) 100%); border: 1px solid rgba(248, 86, 6, 0.3); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; border-radius: var(--radius-lg);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: #fff;">
+              <i data-lucide="zap" style="color: var(--accent-daraz); width: 20px; height: 20px;"></i> ⚡ 3-Step Quick Start (3 Asan Steps Mein Start Karein)
+            </h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">
+              Zero technical setup required — Accounts add karein, link dalein aur 1-click par 250+ self orders ya ranking launch karein!
+            </p>
+          </div>
+          <span class="badge badge-success" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+            <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i> 🛡️ Auto-Pilot Proxy Active
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          <!-- Step 1 Card -->
+          <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.35rem; font-size: 0.95rem;">
+                <span style="background: var(--accent-cyan); color: #000; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800;">1</span>
+                Step 1: Add Accounts (IDs)
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.75rem 0;">
+                Apne 10 se 60 buyer accounts ek sath paste karein (Email:Password).
+              </p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('accounts-view')" style="width: 100%;">
+              <i data-lucide="users" style="width: 14px; height: 14px;"></i> Open Accounts Pool
+            </button>
+          </div>
+
+          <!-- Step 2 Card -->
+          <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--accent-yellow); margin-bottom: 0.35rem; font-size: 0.95rem;">
+                <span style="background: var(--accent-yellow); color: #000; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800;">2</span>
+                Step 2: Enter Product & Keyword
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.75rem 0;">
+                Product ka link aur target search keyword likhein (Single ya 200+ Batch).
+              </p>
+            </div>
+            <button class="btn btn-daraz btn-sm" id="btn-quick-wizard-launch" style="width: 100%;">
+              <i data-lucide="target" style="width: 14px; height: 14px;"></i> ⚡ Launch New Campaign
+            </button>
+          </div>
+
+          <!-- Step 3 Card -->
+          <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.35rem; font-size: 0.95rem;">
+                <span style="background: var(--accent-green); color: #000; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800;">3</span>
+                Step 3: Auto-Pilot (Sub Khud Hoga)
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.75rem 0;">
+                IP change, stealth typing, review scroll aur orders bot khud handle karega.
+              </p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('visual-monitor-view')" style="width: 100%;">
+              <i data-lucide="eye" style="width: 14px; height: 14px;"></i> Watch Live Stream
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="stats-grid">
+        <div class="glass-panel stat-card">
+          <div class="stat-header">
+            <span>Ready Accounts</span>
+            <i data-lucide="user-check" style="width: 18px; height: 18px; color: var(--accent-green);"></i>
+          </div>
+          <div class="stat-value" id="stat-active-accounts">0</div>
+          <div class="stat-subtitle" id="stat-total-accounts">Total: 0 in Pool</div>
+        </div>
+
+        <div class="glass-panel stat-card">
+          <div class="stat-header">
+            <span>Orders Placed</span>
+            <i data-lucide="shopping-bag" style="width: 18px; height: 18px; color: var(--accent-daraz);"></i>
+          </div>
+          <div class="stat-value" id="stat-orders-placed">0</div>
+          <div class="stat-subtitle">COD & Verified Checkout</div>
+        </div>
+
+        <div class="glass-panel stat-card">
+          <div class="stat-header">
+            <span>Add To Carts (ATC)</span>
+            <i data-lucide="shopping-cart" style="width: 18px; height: 18px; color: var(--accent-yellow);"></i>
+          </div>
+          <div class="stat-value" id="stat-atc-done">0</div>
+          <div class="stat-subtitle">Ranking & Conversion Boost</div>
+        </div>
+
+        <div class="glass-panel stat-card">
+          <div class="stat-header">
+            <span>Wishlists & Follows</span>
+            <i data-lucide="heart" style="width: 18px; height: 18px; color: #ec4899;"></i>
+          </div>
+          <div class="stat-value" id="stat-wishlist-done">0</div>
+          <div class="stat-subtitle">Store Engagement</div>
+        </div>
+
+        <div class="glass-panel stat-card">
+          <div class="stat-header">
+            <span>Active Campaigns</span>
+            <i data-lucide="activity" style="width: 18px; height: 18px; color: var(--accent-primary);"></i>
+          </div>
+          <div class="stat-value" id="stat-running-campaigns">0</div>
+          <div class="stat-subtitle" id="stat-total-campaigns">Total: 0 Targets</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions & Active Campaigns -->
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><i data-lucide="flame" style="color: var(--accent-daraz);"></i> Active Campaigns Overview</h2>
+          <div class="section-subtitle">Real-time status of current product ranking and order tasks</div>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn btn-daraz" id="btn-quick-new-campaign">
+            <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i> Launch New Campaign
+          </button>
+          <button class="btn btn-secondary" id="btn-quick-batch">
+            <i data-lucide="layers" style="width: 16px; height: 16px;"></i> Batch 200+ Products
+          </button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="custom-table" id="dashboard-campaigns-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Campaign Name / Keyword</th>
+              <th>Target URL / Store</th>
+              <th>Orders Progress</th>
+              <th>ATC Progress</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 3rem;">
+                No campaigns created yet. Click <b>Launch New Campaign</b> or <b>Batch 200+ Products</b> to get started!
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Live Real-Time Activity Terminal on Dashboard -->
+      <div style="margin-top: 1.5rem;">
+        <div class="section-header" style="margin-bottom: 0.75rem;">
+          <div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+              <i data-lucide="terminal" style="color: var(--accent-cyan); width: 18px; height: 18px;"></i> Live Real-Time Bot Execution Stream
+            </h3>
+            <div class="section-subtitle">Watch step-by-step actions (IP rotation, search, review scroll, Add-to-Cart) live</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="switchTab('logs-view')">
+            <i data-lucide="maximize-2" style="width: 14px; height: 14px;"></i> Full Live Console
+          </button>
+        </div>
+
+        <div class="glass-panel" style="background: rgba(10, 15, 30, 0.85); border: 1px solid rgba(255,255,255,0.08); padding: 1rem; border-radius: var(--radius-md); max-height: 240px; overflow-y: auto; font-family: var(--font-mono); font-size: 0.82rem;" id="dashboard-live-log-container">
+          <div style="color: var(--text-muted); text-align: center; padding: 1.5rem;">Connecting to real-time bot stream...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.5 STORE BOOSTER VIEW (NEW) -->
+    <section id="store-booster-view" class="tab-pane">
+      <div style="display: grid; grid-template-columns: 420px 1fr; gap: 1.5rem;">
+        
+        <!-- Left Column: Store URL Scraper & Strategy Controls -->
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          
+          <!-- Scraper Card -->
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                <i data-lucide="store" style="color: var(--accent-daraz); width: 22px; height: 22px;"></i> Daraz Store Scraper
+              </h3>
+              <span class="nav-badge" style="background: rgba(249, 115, 22, 0.15); color: var(--accent-daraz); border-color: rgba(249, 115, 22, 0.3);">1-Click Rank</span>
+            </div>
+            
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              Paste any Daraz seller store URL. The engine will extract all active products with photos, titles, and IDs automatically.
+            </p>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label">Daraz Store URL</label>
+              <input type="text" class="form-input" id="store-url-input" value="https://www.daraz.pk/shop/8itypm6b" placeholder="https://www.daraz.pk/shop/your_store_id">
+            </div>
+
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-daraz" id="btn-scrape-store" style="flex: 1; justify-content: center;">
+                <i data-lucide="scan" style="width: 16px; height: 16px;"></i> Scrape Store Products
+              </button>
+              <button class="btn btn-secondary" id="btn-load-sample-store" title="Load extracted 12 products sample" style="padding: 0 0.75rem;">
+                <i data-lucide="refresh-cw" style="width: 15px; height: 15px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Strategy & Parameters Card -->
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="sliders" style="color: var(--accent-primary); width: 18px; height: 18px;"></i> Deep Ranking Strategy
+            </h4>
+
+            <div class="form-row" style="margin-bottom: 1rem;">
+              <div class="form-group">
+                <label class="form-label">Add-to-Carts / Product</label>
+                <input type="number" class="form-input" id="store-target-atc" value="10" min="1" max="100">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Wishlists / Product</label>
+                <input type="number" class="form-input" id="store-target-wishlist" value="10" min="1" max="100">
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.25rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                <input type="checkbox" id="store-opt-follow" checked style="accent-color: var(--accent-daraz); width: 16px; height: 16px;">
+                <span>🌟 <b>Follow Seller Store</b> (Boosts store trust score)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                <input type="checkbox" id="store-opt-vouchers" checked style="accent-color: var(--accent-daraz); width: 16px; height: 16px;">
+                <span>🎟️ <b>Auto-Collect Vouchers</b> (Algorithm conversion trigger)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                <input type="checkbox" id="store-opt-upvotes" checked style="accent-color: var(--accent-daraz); width: 16px; height: 16px;">
+                <span>👍 <b>Upvote 5-Star Reviews</b> (Increases listing CVR)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                <input type="checkbox" id="store-opt-pogostick" checked style="accent-color: var(--accent-daraz); width: 16px; height: 16px;">
+                <span>🔍 <b>Competitor Comparison</b> (Pogo-sticking SEO win-rate)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer;">
+                <input type="checkbox" id="store-opt-headless" style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
+                <span>🕶️ Run in Headless Mode (Invisible background window)</span>
+              </label>
+            </div>
+
+            <button class="btn btn-daraz" id="btn-launch-store-boost" style="width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 700; padding: 0.85rem;">
+              <i data-lucide="rocket" style="width: 18px; height: 18px;"></i> Launch Store 10x Deep Boost
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Scraped Products Interactive Preview & Progress -->
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          
+          <div class="glass-panel" style="padding: 1.5rem; flex: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                  <i data-lucide="package-check" style="color: var(--accent-green); width: 20px; height: 20px;"></i> Extracted Store Products
+                </h3>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);" id="store-products-count-label">
+                  Showing 12 products ready for 10x ranking boost
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button class="btn btn-secondary btn-sm" id="btn-store-select-all">Select All</button>
+                <button class="btn btn-secondary btn-sm" id="btn-store-deselect-all">Deselect</button>
+              </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="store-products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-height: 520px; overflow-y: auto; padding-right: 0.25rem;">
+              <!-- Dynamic Product Cards Injected Here -->
+              <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem;">
+                Click <b>Scrape Store Products</b> or load sample products to view store catalog.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 1.6 SERP KEYWORD RANK CHECKER & TRACKER (NEW) -->
+    <section id="rank-tracker-view" class="tab-pane">
+      <div style="display: grid; grid-template-columns: 440px 1fr; gap: 1.5rem;">
+        
+        <!-- Left: Search & Target Input -->
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                <i data-lucide="search" style="color: var(--accent-green); width: 22px; height: 22px;"></i> SERP Rank Checker
+              </h3>
+              <span class="nav-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border-color: rgba(16, 185, 129, 0.3);">Organic SEO</span>
+            </div>
+
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              Check where your listing ranks on Daraz for high-volume keywords in real-time. Scans organic positions, competitor ads & sponsored tags.
+            </p>
+
+            <div class="form-group">
+              <label class="form-label">Search Keyword</label>
+              <input type="text" class="form-input" id="rank-keyword-input" placeholder="e.g. bluetooth earbuds, airpods pro" value="airpods pro">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Target Product URL or ID</label>
+              <input type="text" class="form-input" id="rank-product-input" placeholder="https://www.daraz.pk/products/... or 598756764" value="598756764">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Max Pages to Scan</label>
+              <select class="form-input" id="rank-max-pages">
+                <option value="1">Page 1 Only (Top 40 listings)</option>
+                <option value="3">Pages 1 - 3 (Top 120 listings)</option>
+                <option value="5" selected>Pages 1 - 5 (Top 200 listings - Recommended)</option>
+                <option value="10">Pages 1 - 10 (Top 400 listings - Deep Scan)</option>
+              </select>
+            </div>
+
+            <button class="btn btn-daraz" id="btn-run-rank-check" style="width: 100%; justify-content: center; font-size: 0.95rem; font-weight: 700; margin-top: 0.5rem;">
+              <i data-lucide="search" style="width: 16px; height: 16px;"></i> Check SERP Rank Now
+            </button>
+          </div>
+
+          <!-- Rank Result Card -->
+          <div id="rank-result-container" style="display: none;"></div>
+        </div>
+
+        <!-- Right: Rank Tracking History Table -->
+        <div class="glass-panel" style="padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                <i data-lucide="history" style="color: var(--accent-cyan); width: 20px; height: 20px;"></i> Keyword SERP Scan History
+              </h3>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Track your keyword ranking improvement before and after bot runs</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="loadRankHistory()">
+              <i data-lucide="rotate-cw" style="width: 14px; height: 14px;"></i> Refresh
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table class="custom-table" id="rank-history-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Keyword</th>
+                  <th>Product</th>
+                  <th>Rank Position</th>
+                  <th>Type</th>
+                  <th>Scanned At</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 3rem;">
+                    No keyword rank checks recorded yet. Scan a keyword above!
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 1.7 LIVE VISUAL BROWSER MONITOR VIEW (NEW) -->
+    <section id="visual-monitor-view" class="tab-pane">
+      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 1.5rem;">
+        
+        <!-- Left: Live Browser Screen Stream -->
+        <div class="glass-panel" style="padding: 1.5rem; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="terminal-dots">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                <i data-lucide="eye" style="color: var(--accent-cyan); width: 20px; height: 20px;"></i> Live Browser Inspector Stream
+              </h3>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <span id="visual-monitor-badge" class="badge badge-success">🔴 LIVE STREAMING</span>
+              <button class="btn btn-secondary btn-sm" id="btn-snap-visual-stream" title="Capture instant snapshot">
+                <i data-lucide="camera" style="width: 14px; height: 14px;"></i> Snap
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btn-toggle-visual-stream">
+                <i data-lucide="pause" style="width: 14px; height: 14px;"></i> Pause
+              </button>
+            </div>
+          </div>
+
+          <!-- Video / Screenshot Frame Player -->
+          <div style="position: relative; flex: 1; min-height: 480px; background: #030712; border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <img id="visual-monitor-img" src="" alt="Live Browser View" style="width: 100%; height: 100%; object-fit: contain; display: none;">
+            
+            <div id="visual-monitor-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--text-muted); padding: 3rem; text-align: center;">
+              <i data-lucide="monitor" style="width: 56px; height: 56px; color: rgba(255,255,255,0.15);"></i>
+              <div>
+                <div style="font-size: 1.05rem; font-weight: 600; color: #e2e8f0;">Visual Monitor Ready</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); max-width: 380px; margin-top: 0.25rem;">
+                  Screenshots of active Playwright worker instances are streamed here in real time. Launch a campaign or test run to watch!
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Frame Timestamp Indicator -->
+            <div style="position: absolute; bottom: 10px; left: 12px; font-family: var(--font-mono); font-size: 0.75rem; background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 4px; color: #a5f3fc; border: 1px solid rgba(255,255,255,0.1);" id="visual-monitor-timestamp">
+              Standby
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stream Controls & Active Worker Info -->
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="sliders" style="color: var(--accent-primary); width: 18px; height: 18px;"></i> Stream Controls
+            </h4>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label">Refresh Interval</label>
+              <select class="form-input" onchange="setStreamInterval(this.value)">
+                <option value="1000">1.0 Second (Ultra-Fast)</option>
+                <option value="2000" selected>2.0 Seconds (Recommended)</option>
+                <option value="5000">5.0 Seconds (Low Bandwidth)</option>
+              </select>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.3); border-radius: var(--radius-sm); padding: 1rem; border: 1px solid var(--border-color); font-size: 0.82rem; line-height: 1.5; color: var(--text-secondary);">
+              <b>⚡ Hardware Accelerated:</b> Powered by Microsoft Edge WebView2 & Playwright async frame capture.
+            </div>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.5rem; flex: 1;">
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="activity" style="color: var(--accent-green); width: 18px; height: 18px;"></i> Quick Actions
+            </h4>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <button class="btn btn-daraz btn-sm" onclick="switchTab('store-booster-view')">
+                <i data-lucide="rocket" style="width: 14px; height: 14px;"></i> Run Store Booster
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="switchTab('rank-tracker-view')">
+                <i data-lucide="search" style="width: 14px; height: 14px;"></i> Check SERP Rank
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="switchTab('terminal-view')">
+                <i data-lucide="terminal" style="width: 14px; height: 14px;"></i> View Full Terminal Logs
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. CAMPAIGNS & BATCH VIEW -->
+    <section id="campaigns-view" class="tab-pane">
+      <div style="display: grid; grid-template-columns: 380px 1fr; gap: 1.5rem;">
+        
+        <!-- Left: Create Campaign Form with Dual Mode Selector -->
+        <div class="glass-panel" style="padding: 1.5rem; height: fit-content;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="sparkles" style="color: var(--accent-primary); width: 20px; height: 20px;"></i> Launch Campaign
+          </h3>
+
+          <!-- Mode Switcher Buttons -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.25rem; background: rgba(0,0,0,0.3); padding: 4px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <button type="button" class="btn btn-sm mode-switch-btn active" id="btn-mode-atc" onclick="switchCampaignMode('atc_rank_boost')" style="font-weight: 600; font-size: 0.8rem; justify-content: center; background: var(--accent-primary); color: white;">
+              🚀 Solution 4: ATC & Rank
+            </button>
+            <button type="button" class="btn btn-sm mode-switch-btn" id="btn-mode-order" onclick="switchCampaignMode('order_checkout')" style="font-weight: 600; font-size: 0.8rem; justify-content: center; background: transparent; color: var(--text-muted);">
+              🛒 Self-Orders (1/ID)
+            </button>
+          </div>
+
+          <form id="single-campaign-form">
+            <input type="hidden" id="camp-type" value="atc_rank_boost">
+
+            <!-- Mode Description Card -->
+            <div id="mode-desc-card" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1.25rem; font-size: 0.8rem; line-height: 1.4; color: #c7d2fe;">
+              <b style="color: #ffffff;">⚡ Solution 4 (Infinite Organic Ranking):</b>
+              Searches your keyword, scrolls & dwells on reviews, adds to cart & wishlist with rotating IPs. <b>Zero phone numbers or accounts required!</b>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Campaign Name</label>
+              <input type="text" class="form-input" id="camp-name" placeholder="e.g. M10 TWS Earbuds Rank Booster" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Daraz Product Link / Store Link</label>
+              <input type="url" class="form-input" id="camp-url" placeholder="https://www.daraz.pk/products/..." required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Organic Search Keyword</label>
+              <input type="text" class="form-input" id="camp-keyword" placeholder="e.g. bluetooth earbuds wireless" required>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                Bot will search this keyword and locate your product naturally on Daraz.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Seller Store Name (Optional Verification)</label>
+              <input type="text" class="form-input" id="camp-seller" placeholder="e.g. Global Tech Store">
+            </div>
+
+            <!-- Dynamic Input Rows for Modes -->
+            <div id="atc-mode-inputs">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" style="color: var(--accent-yellow); font-weight: 600;">Add To Cart (ATC) Target</label>
+                  <input type="number" class="form-input" id="camp-atc" value="25" min="1" max="1000">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Wishlists Target</label>
+                  <input type="number" class="form-input" id="camp-wishlist" value="10" min="0" max="500">
+                </div>
+              </div>
+            </div>
+
+            <div id="order-mode-inputs" style="display: none;">
+              <div class="form-group">
+                <label class="form-label" style="color: var(--accent-daraz); font-weight: 600;">Target Orders Count (1 per available ID)</label>
+                <input type="number" class="form-input" id="camp-orders" value="1" min="1" max="100">
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                  Strict limit: 1 order per ID per day. Rotates accounts with 24h cooldown.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Delay Between Tasks (Sec)</label>
+                <input type="number" class="form-input" id="camp-delay" value="15" min="5" max="300">
+              </div>
+              <div class="form-group" style="display: flex; align-items: flex-end; padding-bottom: 0.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer; color: var(--text-secondary);">
+                  <input type="checkbox" id="camp-headless" style="width: 16px; height: 16px; accent-color: var(--accent-primary);">
+                  Headless (Background)
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-daraz" id="btn-submit-campaign" style="width: 100%; margin-top: 0.75rem;">
+              <i data-lucide="rocket" style="width: 16px; height: 16px;"></i> Launch Solution 4 Rank Booster
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Campaign List & Controls -->
+        <div>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title"><i data-lucide="layers" style="color: var(--accent-primary);"></i> Manage Campaigns</h2>
+              <div class="section-subtitle">Control, pause, resume or delete single and batch campaigns</div>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-secondary" onclick="window.open('/api/campaigns/export-csv', '_blank')">
+                <i data-lucide="download" style="width: 15px; height: 15px;"></i> Export CSV
+              </button>
+              <button class="btn btn-primary" id="btn-open-batch-modal">
+                <i data-lucide="upload-cloud" style="width: 16px; height: 16px;"></i> Batch Upload (200+ Products)
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="custom-table" id="campaigns-full-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Campaign & Keyword</th>
+                  <th>Orders Target</th>
+                  <th>ATC Target</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 3. ACCOUNTS POOL VIEW -->
+    <section id="accounts-view" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><i data-lucide="users" style="color: var(--accent-cyan);"></i> Daraz Accounts Pool & Auto-Rotator</h2>
+          <div class="section-subtitle">Manage buyer accounts. Strictly 1 order per ID per day with automatic 4G IP rotation & 24h cooldowns.</div>
+        </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(15,23,42,0.6); padding: 0.35rem 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; color: var(--text-muted); white-space: nowrap;"><i data-lucide="gauge" style="width: 14px; height: 14px; vertical-align: middle;"></i> Daily Limit / ID:</span>
+            <select id="select-global-daily-limit" class="form-input" style="padding: 0.25rem 0.5rem; font-size: 0.8rem; width: auto; background: var(--bg-card); color: #fff;" onchange="setGlobalDailyLimit(this.value)">
+              <option value="1">1 Order/Day</option>
+              <option value="2">2 Orders/Day</option>
+              <option value="3">3 Orders/Day</option>
+              <option value="4">4 Orders/Day</option>
+              <option value="5" selected>5 Orders/Day (250+ Orders Target)</option>
+              <option value="8">8 Orders/Day</option>
+              <option value="10">10 Orders/Day</option>
+            </select>
+          </div>
+          <button class="btn btn-secondary" onclick="exportAccountsCSV()">
+            <i data-lucide="download" style="width: 15px; height: 15px;"></i> Export CSV
+          </button>
+          <button class="btn btn-secondary" id="btn-reset-all-quotas" title="Reset daily order count to 0 for all accounts">
+            <i data-lucide="rotate-ccw" style="width: 16px; height: 16px;"></i> Reset All Quotas
+          </button>
+          <button class="btn btn-primary" id="btn-open-bulk-accounts-modal">
+            <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i> Bulk Import Accounts (CSV/Text)
+          </button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="custom-table" id="accounts-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Account Email</th>
+              <th>Daily Orders / Limit</th>
+              <th>Total Orders</th>
+              <th>Status</th>
+              <th>Last Used</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- 4. PROXIES & IP ROTATOR VIEW -->
+    <section id="proxies-view" class="tab-pane">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+        
+        <!-- Left: Free Harvester & Rotation Engine -->
+        <div class="glass-panel" style="padding: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="zap" style="color: var(--accent-yellow); width: 20px; height: 20px;"></i> Free Global IP Rotation & Harvester
+          </h3>
+
+          <div style="margin-bottom: 1.25rem;">
+            <label class="form-label" style="font-weight: 600;">1-Click Free Worldwide Proxy Scraper</label>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Scrapes 2,000+ live public proxies worldwide (HTTP & SOCKS5), validates latency in parallel, and adds active ones to your pool.
+            </p>
+            <button type="button" class="btn btn-daraz" id="btn-harvest-free-proxies" style="width: 100%;">
+              <i data-lucide="download-cloud" style="width: 16px; height: 16px;"></i> ⚡ Auto-Harvest 15+ Free Working Proxies
+            </button>
+          </div>
+
+          <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.25rem 0;">
+
+          <!-- Rotation Method Selector -->
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 600;">Free IP Rotation Method</label>
+            <select class="form-input" id="rotation-method-select">
+              <option value="auto">⚡ Auto-Detect Best Available Method</option>
+              <option value="android_adb">📱 Android USB 4G Cellular (Free 100% Jazz/Zong IP via Airplane Mode)</option>
+              <option value="dongle_hilink">📶 Huawei / Zong / Jazz 4G Dongle HiLink (192.168.8.1)</option>
+              <option value="cloudflare_warp">🌐 Cloudflare WARP CLI Reconnect</option>
+              <option value="api_webhook">🔗 Custom API / Webhook Trigger URL</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="rotation-param-group">
+            <label class="form-label" id="rotation-param-label">Dongle IP or Webhook URL (Optional)</label>
+            <input type="text" class="form-input" id="rotation-param-input" placeholder="http://192.168.8.1 or https://api.proxy.com/rotate">
+          </div>
+
+          <button class="btn btn-primary" id="btn-trigger-rotation" style="width: 100%;">
+            <i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i> 🔄 Rotate IP Address Now
+          </button>
+        </div>
+
+        <!-- Right: Network & IP Status Card -->
+        <div class="glass-panel" style="padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="globe" style="color: var(--accent-cyan); width: 20px; height: 20px;"></i> Live Network & IP Status
+            </h3>
+            <button class="btn btn-secondary btn-sm" id="btn-refresh-ip-status">
+              <i data-lucide="rotate-cw" style="width: 14px; height: 14px;"></i> Refresh
+            </button>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border-radius: var(--radius-sm); padding: 1.25rem; border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="color: var(--text-muted); font-size: 0.85rem;">Detected Public IP:</span>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-cyan); font-size: 1.1rem;" id="diag-ip">Checking...</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="color: var(--text-muted); font-size: 0.85rem;">Geo Location:</span>
+              <span style="font-weight: 600;" id="diag-geo">Loading...</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="color: var(--text-muted); font-size: 0.85rem;">ISP / Carrier:</span>
+              <span style="font-weight: 600; color: var(--accent-green);" id="diag-isp">Loading...</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted); font-size: 0.85rem;">Android Phone (USB):</span>
+              <span style="font-weight: 600; font-family: var(--font-mono);" id="diag-adb">Checking ADB...</span>
+            </div>
+          </div>
+
+          <!-- Add Manual Custom Proxy Form -->
+          <form id="proxy-config-form">
+            <label class="form-label">Add Custom Proxy (Optional)</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" class="form-input" id="proxy-url-input" placeholder="http://user:pass@host:port or host:port" style="flex: 1;">
+              <button type="submit" class="btn btn-secondary">
+                <i data-lucide="plus" style="width: 16px; height: 16px;"></i> Add
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Active Proxies Pool Table -->
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h4 style="font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="list" style="color: var(--accent-primary); width: 18px; height: 18px;"></i> Active Proxies in Pool
+          </h4>
+          <span style="font-size: 0.8rem; color: var(--text-muted);" id="proxies-count-badge">0 Proxies Active</span>
+        </div>
+
+        <div class="table-container">
+          <table class="custom-table" id="proxies-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Proxy Address</th>
+                <th>Type</th>
+                <th>Resolved IP</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                  No proxies in pool. Click <b>Auto-Harvest 15+ Free Working Proxies</b> above!
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 5. LIVE TERMINAL / CONSOLE VIEW -->
+    <section id="terminal-view" class="tab-pane">
+      <div class="terminal-wrapper">
+        <div class="terminal-header">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div class="terminal-dots">
+              <div class="terminal-dot red"></div>
+              <div class="terminal-dot yellow"></div>
+              <div class="terminal-dot green"></div>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;">daraz-automation-live-stream.log</span>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-secondary btn-sm" id="btn-clear-logs">
+              <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i> Clear Console
+            </button>
+          </div>
+        </div>
+
+        <div class="terminal-body" id="terminal-output">
+          <div class="log-entry">
+            <span class="log-time">[System]</span>
+            <span class="log-tag info">INFO</span>
+            <span class="log-msg">DarazBot Pro Real-time Live Console Ready. Connected to automation daemon.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- MODAL: Bulk Accounts Import -->
+  <div class="modal-overlay" id="bulk-accounts-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="users" style="color: var(--accent-primary);"></i> Bulk Import Daraz Accounts
+        </h3>
+        <button class="close-modal-btn" onclick="closeModal('bulk-accounts-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Paste your accounts list below, one account per line. Supported formats:
+          <br><code>email:password</code> or <code>email:password:phone:shipping_address</code>
+        </p>
+        <textarea class="form-textarea" id="bulk-accounts-textarea" placeholder="buyer1@gmail.com:SecretPass123&#10;buyer2@gmail.com:SecretPass456&#10;buyer3@gmail.com:SecretPass789:03001234567:House 12 Street 4 Karachi" rows="8"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('bulk-accounts-modal')">Cancel</button>
+        <button class="btn btn-primary" id="btn-submit-bulk-accounts">
+          <i data-lucide="check" style="width: 16px; height: 16px;"></i> Import Accounts
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: Batch 200+ Products Campaign Creator -->
+  <div class="modal-overlay" id="batch-campaigns-modal">
+    <div class="modal-content" style="max-width: 750px;">
+      <div class="modal-header">
+        <h3 style="font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="layers" style="color: var(--accent-daraz);"></i> Bulk Batch Campaign Creator (200+ Products)
+        </h3>
+        <button class="close-modal-btn" onclick="closeModal('batch-campaigns-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Paste multiple product URLs or formatted lines below (one per line).<br>
+          Format: <code>Product_URL | Keyword | OrdersCount | ATCCount</code> or simply paste raw URLs.
+        </p>
+        <textarea class="form-textarea" id="batch-products-textarea" placeholder="https://www.daraz.pk/products/wireless-earbuds-i12345.html | bluetooth earphones | 5 | 10&#10;https://www.daraz.pk/products/smart-watch-i67890.html | android smart watch | 3 | 15&#10;https://www.daraz.pk/products/power-bank-i11223.html" rows="9"></textarea>
+        
+        <div class="form-row" style="margin-top: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Default Orders / Product</label>
+            <input type="number" class="form-input" id="batch-def-orders" value="5" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Default ATC / Product</label>
+            <input type="number" class="form-input" id="batch-def-atc" value="10" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Delay (Seconds)</label>
+            <input type="number" class="form-input" id="batch-def-delay" value="20" min="5">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('batch-campaigns-modal')">Cancel</button>
+        <button class="btn btn-daraz" id="btn-submit-batch-campaigns">
+          <i data-lucide="zap" style="width: 16px; height: 16px;"></i> Generate All Batch Campaigns
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Settings & Anti-Detect Preferences -->
+  <div class="modal-overlay" id="settings-modal">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3 style="font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="sliders" style="color: var(--accent-primary);"></i> Engine, Safety & Marketplace Settings
+        </h3>
+        <button class="close-modal-btn" onclick="closeModal('settings-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" style="font-weight: 600;">Active Country / Marketplace</label>
+          <select class="form-input" id="setting-country-select">
+            <option value="PK">🇵🇰 Pakistan - Daraz.pk</option>
+            <option value="BD">🇧🇩 Bangladesh - Daraz.com.bd</option>
+            <option value="LK">🇱🇰 Sri Lanka - Daraz.lk</option>
+            <option value="NP">🇳🇵 Nepal - Daraz.com.np</option>
+            <option value="MM">🇲🇲 Myanmar - Shop.com.mm</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" style="font-weight: 600;">Human Behavior Anti-Detect Profile</label>
+          <select class="form-input" id="setting-human-profile">
+            <option value="ultra_stealth" selected>🛡️ Ultra-Stealth (Realistic Bezier curves, reviews reading, random dwell - Safest)</option>
+            <option value="normal">⚡ Normal Speed (Standard organic buyer delays)</option>
+            <option value="fast">🚀 Turbo Speed (Minimal delay, high throughput)</option>
+          </select>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
+          <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+            <input type="checkbox" id="setting-safe-mode" checked style="accent-color: var(--accent-green); width: 18px; height: 18px; margin-top: 2px;">
+            <div>
+              <div style="font-weight: 700; color: #fff; font-size: 0.9rem;">🛡️ Safe Order Simulation Mode</div>
+              <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">
+                When active, the self-order bot automatically fills cart, selects shipping & applies vouchers, but halts right before final payment trigger. Uncheck only if you want automatic live Cash-on-Delivery placement.
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.8rem; color: var(--text-muted);">DarazBot Pro v2.1 Enterprise Edition</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('settings-modal')">Close</button>
+        <button class="btn btn-primary" id="btn-save-settings">
+          <i data-lucide="save" style="width: 16px; height: 16px;"></i> Save Preferences
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Desktop & System Diagnostics -->
+  <div class="modal-overlay" id="diagnostics-modal">
+    <div class="modal-content" style="max-width: 620px;">
+      <div class="modal-header">
+        <h3 style="font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="cpu" style="color: var(--accent-cyan);"></i> System Diagnostics & Desktop Runtime
+        </h3>
+        <button class="close-modal-btn" onclick="closeModal('diagnostics-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="diagnostics-modal-body">
+        <div style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading system runtime details...</div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('diagnostics-modal')">Close</button>
+        <button class="btn btn-primary" onclick="createDesktopShortcut()">
+          <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i> Pin Desktop Shortcut
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom App Bar (Native App Style for iOS / Android) -->
+  <nav class="mobile-bottom-bar">
+    <button class="mobile-nav-item active" data-tab="dashboard-view">
+      <i data-lucide="layout-dashboard"></i>
+      <span>Dashboard</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="store-booster-view">
+      <i data-lucide="store"></i>
+      <span>Store Boost</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="rank-tracker-view">
+      <i data-lucide="search"></i>
+      <span>Rank</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="visual-monitor-view">
+      <i data-lucide="eye"></i>
+      <span>Stream</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="campaigns-view">
+      <i data-lucide="target"></i>
+      <span>Campaigns</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="accounts-view">
+      <i data-lucide="users"></i>
+      <span>Accounts</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="proxies-view">
+      <i data-lucide="shield-check"></i>
+      <span>Proxies</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="terminal-view">
+      <i data-lucide="terminal"></i>
+      <span>Console</span>
+    </button>
+  </nav>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- App Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/store_booster.js"></script>
+  <script src="js/rank_checker.js"></script>
+  <script src="js/visual_monitor.js"></script>
+  <script src="js/accounts.js"></script>
+  <script src="js/campaigns.js"></script>
+  <script src="js/proxies.js"></script>
+  <script src="js/logs.js"></script>
+
+  <script>
+    // Initialize Lucide Icons
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>
+
